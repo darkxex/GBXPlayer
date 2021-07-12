@@ -31,11 +31,21 @@ FIND THE HARDWARE USED AND THE ORIGINAL SOFTWARE: https://www.gbxcart.com/
 #include <unistd.h>
 #endif
 
+
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "setup.h" // See defines, variables, constants, functions here
 
+#ifdef __cplusplus
+}
+#endif
 char* concat(const char* s1, const char* s2)
 {
-	char* result = malloc(strlen(s1) + strlen(s2) + 1); // +1 for the null-terminator
+	char* result = (char*)malloc(strlen(s1) + strlen(s2) + 1); // +1 for the null-terminator
 	// in real code you would check for errors in malloc here
 	strcpy(result, s1);
 	strcat(result, s2);
